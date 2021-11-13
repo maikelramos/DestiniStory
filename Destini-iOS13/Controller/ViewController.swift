@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var storyLabel: UILabel!
     @IBOutlet weak var choice1Button: UIButton!
     @IBOutlet weak var choice2Button: UIButton!
-    let storyBrain = StoryBrain()
+    var storyBrain = StoryBrain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,8 @@ class ViewController: UIViewController {
 
     @IBAction func choicePressed(_ sender: UIButton) {
         let userChoice = sender.currentTitle!
-        
+        storyBrain.updateSequence(userChoice)
+        updateUI()
     }
     
     func updateUI(){
